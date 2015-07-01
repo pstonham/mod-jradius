@@ -1,0 +1,54 @@
+apply from: "gradle/vertx.gradle"
+apply from: "gradle/setup.gradle"
+
+
+dependencies {
+    compile "net.jradius:jradius-core:1.1.4"
+    compile "net.jradius:jradius-dictionary:1.1.4"
+    compile 'org.gnu:gnu-crypto:2.0.1'
+    testCompile "commons-pool:commons-pool:1.6"
+    testCompile "commons-logging:commons-logging:1.2"
+    testCompile "org.mock-server:mockserver-netty:3.9.1"
+    testCompile "io.vertx:vertx-core:2.1.1"
+}
+
+targetCompatibility = "1.8"
+sourceCompatibility = "1.8"
+
+/*
+If you're uploading stuff to Maven, Gradle needs to generate a POM.
+Please edit the details below.
+ */
+def configurePom(def pom) {
+    pom.project {
+        name rootProject.name
+        description 'JRadius Module for vertx'
+        inceptionYear '2015'
+        packaging 'jar'
+        url 'REPLACEME'
+
+        developers {
+            developer {
+                id 'pstonham'
+                name 'Peter Stonham'
+                email 'p.stonham@gmail.com'
+            }
+        }
+
+        scm {
+            url 'REPLACEME'
+        }
+
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution 'repo'
+            }
+        }
+
+        properties {
+            setProperty('project.build.sourceEncoding', 'UTF8')
+        }
+    }
+}
