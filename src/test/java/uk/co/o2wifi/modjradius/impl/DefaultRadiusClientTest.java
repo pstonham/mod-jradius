@@ -47,6 +47,7 @@ public class DefaultRadiusClientTest extends TestVerticle {
             } catch (Exception e) {
                 VertxAssert.fail(e.getMessage());
             }
+            peer1.close();
             VertxAssert.testComplete();
         });
     }
@@ -104,6 +105,8 @@ public class DefaultRadiusClientTest extends TestVerticle {
                     } catch (Exception e) {
                         VertxAssert.fail("Error reading packet " + e);
                     }
+
+                    peer1.close();
                     VertxAssert.testComplete();
                 });
             } catch (Exception e) {
